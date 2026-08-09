@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jael Nyangwethe — Computer Security &amp; Forensics | Portfolio</title>
+<meta name="description" content="Jael Nyangwethe — Computer Security and Forensics graduate. Cybersecurity, digital forensics, and AI-driven security tooling. Nairobi, Kenya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E12;
+    --panel:#12161C;
+    --panel-2:#161B22;
+    --border:#232A33;
+    --text:#E8EAED;
+    --muted:#8B94A0;
+    --amber:#E8A33D;
+    --teal:#4FB3A9;
+    --red:#C24B4B;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --grotesk:'Space Grotesk', sans-serif;
+    --sans:'Inter', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  .ticket{
+    border-bottom:1px dashed var(--border);
+    background:var(--panel);
+    position:relative;
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    bottom:-9px;
+    width:18px; height:18px;
+    background:var(--bg);
+    border-radius:50%;
+    border:1px dashed var(--border);
+  }
+  .ticket::before{left:-9px;}
+  .ticket::after{right:-9px;}
+  .ticket-row{
+    display:flex; flex-wrap:wrap; gap:24px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    color:var(--muted);
+    padding:10px 0;
+  }
+  .ticket-row span b{color:var(--amber); font-weight:600;}
+  .ticket-row .status{color:var(--teal);}
+
+  header.hero{padding:72px 0 56px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:8px;height:8px;
+    background:var(--amber);
+    display:inline-block;
+  }
+  h1{
+    font-family:var(--grotesk);
+    font-weight:700;
+    font-size:clamp(34px, 6.4vw, 58px);
+    line-height:1.05;
+    letter-spacing:-.01em;
+  }
+  h1 .redact{
+    display:inline-block;
+    position:relative;
+  }
+  h1 .redact::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:6px;
+    height:14px;
+    background:var(--amber);
+    z-index:-1;
+    opacity:.22;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--muted);
+    margin-top:18px;
+    letter-spacing:.02em;
+  }
+  .role b{color:var(--text); font-weight:500;}
+  .lede{
+    max-width:62ch;
+    margin-top:22px;
+    color:#C7CCD3;
+    font-size:16px;
+  }
+  .cta-row{display:flex; gap:12px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.03em;
+    padding:11px 20px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    text-decoration:none;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .btn:hover{border-color:var(--amber); background:rgba(232,163,61,.06);}
+  .btn.primary{background:var(--amber); color:#12161C; border-color:var(--amber); font-weight:600;}
+  .btn.primary:hover{background:#f0b155;}
+
+  section{padding:52px 0; border-top:1px solid var(--border);}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:28px; flex-wrap:wrap;
+  }
+  .section-num{
+    font-family:var(--mono);
+    color:var(--amber);
+    font-size:13px;
+  }
+  .section-title{
+    font-family:var(--grotesk);
+    font-size:22px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .section-sub{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    margin-left:auto;
+  }
+
+  .profile-grid{display:grid; grid-template-columns:1fr; gap:18px;}
+  .profile-grid p{color:#C7CCD3; max-width:70ch;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .tag{
+    font-family:var(--mono);
+    font-size:11px;
+    padding:5px 10px;
+    border:1px solid var(--border);
+    color:var(--muted);
+    letter-spacing:.03em;
+  }
+
+  .ledger{width:100%; border-collapse:collapse; font-size:14px;}
+  .ledger thead th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    padding:0 14px 10px;
+    border-bottom:1px solid var(--border);
+  }
+  .ledger tbody td{
+    padding:14px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  .ledger tbody tr:hover{background:rgba(232,163,61,.04);}
+  .ledger .id{font-family:var(--mono); color:var(--amber); font-size:12px;}
+  .ledger .domain{font-weight:600;}
+  .ledger .tools{color:var(--muted); font-size:13px;}
+  .pill{
+    font-family:var(--mono);
+    font-size:10px;
+    padding:3px 8px;
+    letter-spacing:.04em;
+    border:1px solid;
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .pill.active{color:var(--teal); border-color:var(--teal);}
+  .pill.building{color:var(--amber); border-color:var(--amber);}
+
+  .exhibits{display:grid; gap:16px;}
+  .exhibit{
+    background:var(--panel);
+    border:1px solid var(--border);
+    padding:22px 22px 20px;
+    position:relative;
+  }
+  .exhibit-tab{
+    position:absolute;
+    top:-11px; left:20px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.05em;
+    color:var(--amber);
+    padding:3px 8px;
+  }
+  .exhibit h3{font-family:var(--grotesk); font-size:18px; font-weight:600; margin-top:8px;}
+  .exhibit p{color:var(--muted); font-size:14px; margin-top:8px; max-width:62ch;}
+  .exhibit ul{margin-top:10px; padding-left:18px; color:var(--muted); font-size:13.5px;}
+  .exhibit ul li{margin-top:4px;}
+  .exhibit .meta{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-top:14px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+  }
+  .exhibit .meta a{color:var(--teal); text-decoration:none; border-bottom:1px dashed var(--teal);}
+  .exhibit.placeholder{border-style:dashed; color:var(--muted);}
+  .exhibit.placeholder h3{color:var(--muted); font-weight:500;}
+
+  .timeline{border-left:1px dashed var(--border); padding-left:24px; display:grid; gap:28px;}
+  .tl-item{position:relative;}
+  .tl-item::before{
+    content:"";
+    position:absolute; left:-29px; top:4px;
+    width:9px; height:9px;
+    background:var(--bg);
+    border:2px solid var(--amber);
+    border-radius:50%;
+  }
+  .tl-date{font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.04em;}
+  .tl-role{font-family:var(--grotesk); font-weight:600; font-size:16px; margin-top:4px;}
+  .tl-org{color:var(--muted); font-size:13px; margin-top:2px;}
+  .tl-desc{color:#C7CCD3; font-size:14px; margin-top:8px; max-width:62ch;}
+  .tl-desc ul{padding-left:18px; margin-top:6px;}
+  .tl-desc li{margin-top:4px;}
+
+  .cred-grid{display:grid; gap:12px;}
+  .cred{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 0; border-bottom:1px solid var(--border);
+    flex-wrap:wrap; gap:6px;
+  }
+  .cred-name{font-weight:600;}
+  .cred-org{color:var(--muted); font-size:13px;}
+  .cred-date{font-family:var(--mono); font-size:11px; color:var(--muted);}
+
+  footer{padding:56px 0 64px; border-top:1px solid var(--border);}
+  footer h2{
+    font-family:var(--grotesk);
+    font-size:clamp(24px,4vw,34px);
+    max-width:18ch;
+  }
+  .contact-links{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;}
+  .foot-note{
+    margin-top:48px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  @media (min-width:640px){
+    .profile-grid{grid-template-columns:2fr 1fr;}
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .fade-up{
+      opacity:0; transform:translateY(14px);
+      animation:fadeUp .6s ease forwards;
+    }
+    @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+  }
+</style>
+</head>
+<body>
+
+<div class="ticket">
+  <div class="wrap">
+    <div class="ticket-row">
+      <span>FILE_NO: <b>SEC-2026-001</b></span>
+      <span>CLEARANCE: <b>PUBLIC</b></span>
+      <span>LOCATION: <b>NAIROBI, KE</b></span>
+      <span>STATUS: <span class="status">● ACTIVE — OPEN TO WORK</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Case File / Personnel Record</div>
+    <h1>Jael Nyangwethe —<br><span class="redact">Security &amp; Forensics</span></h1>
+    <div class="role">
+      <b>Computer Security &amp; Forensics, JOOUST (2025)</b> · Cybersecurity · Digital Forensics · AI-driven security tooling
+    </div>
+    <p class="lede">
+      Results-driven Computer Security and Forensics graduate with hands-on experience across
+      cybersecurity, digital forensics, and AI-driven security tools — from managing firewalls,
+      IDS, and endpoint protection, to designing phishing-detection algorithms in Python.
+      This page is the standing record of that work, and it grows with every lab I complete.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#exhibits">View Case Files</a>
+      <a class="btn" href="mailto:jaelblazer@gmail.com">Contact</a>
+      <a class="btn" href="https://github.com/Jaelblazer" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section id="profile">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Profile</span>
+      <span class="section-sub">SUMMARY</span>
+    </div>
+    <div class="profile-grid">
+      <p>
+        I'm a Computer Security and Forensics graduate from Jaramogi Oginga Odinga University
+        of Science and Technology, with hands-on experience in cybersecurity, digital forensics,
+        and AI-driven solutions. I've worked with firewalls, intrusion detection systems, and
+        endpoint protection, and I build automated security tooling — including a phishing
+        detection algorithm and an AI security bot — using Python and machine learning. I'm
+        an effective communicator with experience delivering technical training and presenting
+        findings to peers and faculty, and I'm adaptable across fast-moving ICT environments.
+      </p>
+      <div>
+        <div class="tags">
+          <span class="tag">CYBERSECURITY</span>
+          <span class="tag">DIGITAL FORENSICS</span>
+          <span class="tag">MACHINE LEARNING</span>
+          <span class="tag">PYTHON</span>
+          <span class="tag">INCIDENT ANALYSIS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">Skill Ledger</span>
+      <span class="section-sub">CHAIN OF COMPETENCE</span>
+    </div>
+    <table class="ledger">
+      <thead>
+        <tr><th>ID</th><th>Domain</th><th>Tools / Frameworks</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="id">SK-01</td>
+          <td class="domain">Cybersecurity Tools</td>
+          <td class="tools">Wireshark, Burp Suite, Maltego, Metasploit</td>
+          <td><span class="pill active">ACTIVE</span></td>
+        </tr>
+        <tr>
+          <td class="id">SK-02</td>
+          <td class="domain">Digital Forensics</td>
+          <td class="tools">Incident analysis, evidence handling, investigation methodology</td>
+          <td><span class="pill active">ACTIVE</span></td>
+        </tr>
+        <tr>
+          <td class="id">SK-03</td>
+          <td class="domain">AI &amp; Data Tools</td>
+          <td class="tools">Machine Learning, Scikit-learn, Pandas, NumPy</td>
+          <td><span class="pill active">ACTIVE</span></td>
+        </tr>
+        <tr>
+          <td class="id">SK-04</td>
+          <td class="domain">Programming</td>
+          <td class="tools">Python, C++, HTML, CSS, Git</td>
+          <td><span class="pill active">ACTIVE</span></td>
+        </tr>
+        <tr>
+          <td class="id">SK-05</td>
+          <td class="domain">Systems &amp; Networking</td>
+          <td class="tools">Linux, Windows, firewalls, IDS, endpoint protection</td>
+          <td><span class="pill active">ACTIVE</span></td>
+        </tr>
+        <tr>
+          <td class="id">SK-06</td>
+          <td class="domain">Blue Team / Threat Analysis</td>
+          <td class="tools">Security Blue Team pathway, cryptography &amp; application security</td>
+          <td><span class="pill building">IN PROGRESS</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="exhibits">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">Case Files</span>
+      <span class="section-sub">PROJECTS &amp; LABS</span>
+    </div>
+    <div class="exhibits">
+
+      <div class="exhibit fade-up">
+        <span class="exhibit-tab">EXHIBIT 01</span>
+        <h3>Email Phishing Detection Using Algorithm</h3>
+        <p>
+          Designed and implemented an automated system for detecting phishing emails using
+          machine learning techniques in Python. Presented outcomes and insights to peers
+          and faculty, sharpening both the technical build and the communication of findings.
+        </p>
+        <div class="meta">
+          <span>PERIOD: Sep 2024 – Apr 2025</span>
+          <span>STACK: Python, Scikit-learn</span>
+          <a href="https://github.com/Jaelblazer/phishing-email-detector" target="_blank" rel="noopener">Repo →</a>
+        </div>
+      </div>
+
+      <div class="exhibit fade-up">
+        <span class="exhibit-tab">EXHIBIT 02</span>
+        <h3>AI Security Bot</h3>
+        <p>
+          Ongoing project building an AI-driven security bot to strengthen automated threat
+          detection and operational efficiency.
+        </p>
+        <div class="meta">
+          <span>PERIOD: May 2025 – Present</span>
+          <a href="https://github.com/Jaelblazer/ai-security-bot" target="_blank" rel="noopener">Repo →</a>
+        </div>
+      </div>
+
+      <!--
+        Add a new .exhibit block here for each lab/project you complete —
+        copy the structure of Exhibit 01 or 02 above and update the
+        exhibit-tab number, title, description, and links.
+      -->
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <span class="section-title">Chain of Custody</span>
+      <span class="section-sub">EXPERIENCE</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">MAY 2024 – AUG 2024</div>
+        <div class="tl-role">Information and Communication Technology Attaché</div>
+        <div class="tl-org">The National Treasury</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Managed cybersecurity tools including firewalls, IDS, and endpoint protection solutions.</li>
+            <li>Assisted in delivering staff cybersecurity training on phishing awareness and secure password practices.</li>
+            <li>Diagnosed and resolved network and system issues; performed ICT asset audits and software configuration.</li>
+            <li>Supported data backup and recovery processes, and antivirus/endpoint protection deployment org-wide.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <span class="section-title">Credentials</span>
+      <span class="section-sub">EDUCATION &amp; TRAINING</span>
+    </div>
+    <div class="cred-grid">
+      <div class="cred">
+        <div>
+          <div class="cred-name">BSc, Computer Security and Forensics</div>
+          <div class="cred-org">Jaramogi Oginga Odinga University of Science and Technology (JOOUST)</div>
+        </div>
+        <div class="cred-date">01/2021 – 12/2025</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Blue Team Junior Analyst Pathway</div>
+          <div class="cred-org">Security Blue Team</div>
+        </div>
+        <div class="cred-date">May 2025</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Operating Systems and Networking Fundamentals</div>
+          <div class="cred-org">Edureka</div>
+        </div>
+        <div class="cred-date">Jul 2025</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Cryptography &amp; Application Security</div>
+          <div class="cred-org">Edureka</div>
+        </div>
+        <div class="cred-date">Sep 2025</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Cyber Security and Ethical Hacking Internship Program</div>
+          <div class="cred-org">Edureka</div>
+        </div>
+        <div class="cred-date">Nov 2025</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Hacking Masterclass Course</div>
+          <div class="cred-org">Z Security</div>
+        </div>
+        <div class="cred-date">In progress</div>
+      </div>
+      <div class="cred">
+        <div>
+          <div class="cred-name">Cybersecurity Job Simulation</div>
+          <div class="cred-org">Forage</div>
+        </div>
+        <div class="cred-date">Award</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="eyebrow">End of File</div>
+    <h2>Open to cybersecurity &amp; digital forensics roles — let's talk.</h2>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:jaelblazer@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/jael-atieno" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Jaelblazer" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-note">
+      <span>© <span id="year"></span> Jael Nyangwethe</span>
+      <span>Built &amp; deployed on GitHub Pages</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
