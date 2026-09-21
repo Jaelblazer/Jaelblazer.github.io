@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jael Nyangwethe — Network &amp; Cloud Security | Portfolio</title>
+<meta name="description" content="Jael Nyangwethe — Computer Security and Forensics graduate training in network and cloud security. Cisco networking, IPv4/IPv6, traffic analysis. Kenya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1520; --bg2:#141a25; --card:#161d2b; --line:#1f2a3b;
+  --green:#26b563; --green-d:#0d7a40; --green-glow:rgba(38,181,99,.18);
+  --text:#e7ecf3; --muted:#9aa6b8;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,92%);margin:0 auto}
+section{padding:96px 0;position:relative}
+.alt{background:var(--bg2)}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(15,21,32,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem}
+.logo .mark{width:34px;height:34px;border:2px solid var(--green);border-radius:8px;display:grid;place-items:center;color:var(--green);font-size:.95rem;font-weight:800}
+.logo small{display:block;font-size:.58rem;font-weight:500;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;line-height:1}
+.links{display:flex;gap:30px;list-style:none}
+.links a{font-size:.92rem;font-weight:500;color:var(--text);transition:.2s;padding:6px 0}
+.links a:hover,.links a.active{color:var(--green)}
+.btn{display:inline-block;padding:11px 26px;font-weight:600;font-size:.9rem;border:1px solid var(--green);color:var(--green);border-radius:3px;transition:.2s;cursor:pointer;background:transparent;font-family:var(--font)}
+.btn:hover{background:var(--green);color:#06210f}
+.btn.solid{background:var(--green);color:#06210f}
+.btn.solid:hover{background:transparent;color:var(--green)}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:1.7rem;cursor:pointer}
+
+/* ---------- hero ---------- */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:110px;overflow:hidden}
+#home::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.28;mask-image:radial-gradient(circle at 70% 45%,#000 0,transparent 68%);-webkit-mask-image:radial-gradient(circle at 70% 45%,#000 0,transparent 68%)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
+.hi{font-family:var(--mono);color:var(--green);font-size:.95rem;margin-bottom:8px}
+.hero h1{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.12;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.outline{color:transparent;-webkit-text-stroke:1.5px var(--green)}
+.green{color:var(--green)}
+.hero .name{font-size:1.5rem;font-weight:600;margin-bottom:6px}
+.hero .lede{border-left:3px solid var(--green-d);padding-left:14px;margin:22px 0 28px;color:var(--muted);max-width:520px;font-size:.98rem}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.pill{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:5px 12px;border:1px solid var(--line);color:var(--muted);border-radius:99px}
+.pill.on{color:var(--green);border-color:var(--green-d)}
+.photo{position:relative;justify-self:center;width:min(430px,86vw);aspect-ratio:1}
+.photo::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px dashed var(--green-d);opacity:.7;animation:spin 60s linear infinite}
+.photo::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,var(--green-d),#0a3d22 70%);opacity:.9}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:50%;z-index:2;border:4px solid var(--green)}
+.badge{position:absolute;z-index:3;background:var(--card);border:1px solid var(--green-d);border-radius:10px;padding:8px 14px;font-family:var(--mono);font-size:.72rem;color:var(--green);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.badge.b1{top:6%;right:-4%}.badge.b2{bottom:8%;left:-6%}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- headings ---------- */
+.sec-head{margin-bottom:52px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-glow)}
+.sec-head h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;text-transform:uppercase;line-height:1.2;margin-top:6px}
+.sec-head p{color:var(--muted);max-width:640px;margin-top:10px}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px;transition:.25s}
+.card:hover{border-color:var(--green-d);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.card h3{font-size:1.08rem;font-weight:600;margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:.93rem}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.7rem;padding:3px 10px;border-radius:99px;background:var(--green-glow);color:var(--green);margin:0 6px 6px 0}
+.meta{font-family:var(--mono);font-size:.74rem;color:var(--green);letter-spacing:.05em;margin-bottom:6px}
+
+/* ---------- resume ---------- */
+.resume{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.resume h3.col{font-size:1.15rem;font-weight:700;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.resume h3.col span{color:var(--green)}
+.tl{border-left:2px solid var(--line);padding-left:24px;margin-left:6px}
+.tl-item{position:relative;padding-bottom:26px}
+.tl-item::before{content:"";position:absolute;left:-32px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--green)}
+.alt .tl-item::before{background:var(--bg2)}
+.tl-item .when{font-family:var(--mono);font-size:.75rem;color:var(--green)}
+.tl-item h4{font-size:1.02rem;font-weight:600;margin:2px 0}
+.tl-item .org{color:var(--muted);font-size:.9rem}
+.tl-item ul{margin:8px 0 0 18px}
+.tl-item li{color:var(--muted);font-size:.9rem;margin-bottom:3px}
+.skills{margin-top:64px}
+.skill-row{display:grid;grid-template-columns:200px 1fr;gap:10px 24px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.skill-row:first-child{border-top:1px solid var(--line)}
+.skill-row .dom{font-weight:600}
+.skill-row .dom small{display:block;font-family:var(--mono);color:var(--green);font-size:.68rem;font-weight:400}
+
+/* ---------- projects ---------- */
+.proj .top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.proj .ico{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--green-glow);color:var(--green);font-size:1.3rem;margin-bottom:14px}
+.proj .foot{margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.link{color:var(--green);font-weight:600;font-size:.88rem}
+.link:hover{text-decoration:underline}
+
+/* ---------- labs ---------- */
+.lab{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:26px;overflow:hidden}
+.lab-head{padding:24px 28px;display:flex;gap:18px;align-items:center;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.lab-num{font-family:var(--mono);font-size:1.7rem;font-weight:500;color:var(--green);opacity:.85}
+.lab-head h3{font-size:1.2rem;font-weight:600}
+.lab-head .src{color:var(--muted);font-size:.85rem}
+.lab-body{padding:26px 28px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
+.lab-body h5{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:6px}
+.lab-body p,.lab-body li{color:var(--muted);font-size:.92rem}
+.lab-body ul{margin-left:18px}
+.lab-body .full{grid-column:1/-1}
+.lab-body code{font-family:var(--mono);font-size:.82em;background:var(--bg);border:1px solid var(--line);padding:1px 6px;border-radius:4px;color:var(--green)}
+.lab-body li b{color:var(--text);font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.shots figure{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)}
+.shots img{width:100%;height:auto}
+.shots figcaption{font-size:.75rem;color:var(--muted);padding:8px 12px;font-family:var(--mono)}
+.shots:empty{display:none}
+
+/* ---------- awards ---------- */
+.ach{display:flex;gap:16px;align-items:flex-start}
+.ach .medal{flex:none;width:42px;height:42px;border-radius:50%;background:var(--green-glow);color:var(--green);display:grid;place-items:center;font-size:1.15rem}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.c-item{display:flex;gap:16px;align-items:center;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;transition:.2s}
+.c-item:hover{border-color:var(--green)}
+.c-item .ci{width:44px;height:44px;border-radius:10px;background:var(--green-glow);color:var(--green);display:grid;place-items:center;font-weight:700;font-family:var(--mono);font-size:.85rem}
+.c-item small{display:block;color:var(--muted);font-size:.75rem}
+.c-item b{font-weight:600;font-size:.95rem;word-break:break-all}
+form{display:grid;gap:14px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea{width:100%;background:var(--card);border:1px solid var(--line);color:var(--text);padding:13px 16px;border-radius:6px;font:inherit;font-size:.92rem}
+input:focus,textarea:focus{outline:none;border-color:var(--green)}
+textarea{min-height:140px;resize:vertical}
+
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem;background:var(--bg)}
+.totop{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:6px;background:var(--green);color:#06210f;display:grid;place-items:center;font-weight:800;opacity:0;pointer-events:none;transition:.25s;z-index:40}
+.totop.show{opacity:1;pointer-events:auto}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero,.resume,.contact{grid-template-columns:1fr}
+  .photo{order:-1;width:min(300px,80vw)}
+  .grid3{grid-template-columns:1fr 1fr}
+  .lab-body{grid-template-columns:1fr}
+  .skill-row{grid-template-columns:1fr}
+  .links{position:absolute;top:72px;left:0;right:0;background:var(--bg2);flex-direction:column;gap:0;padding:8px 5%;border-bottom:1px solid var(--line);display:none}
+  .links.open{display:flex}
+  .links a{display:block;padding:12px 0}
+  .burger{display:block}
+  .nav .btn.talk{display:none}
+}
+@media(max-width:620px){.grid2,.grid3,form .row{grid-template-columns:1fr}section{padding:72px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="logo"><span class="mark">JN</span><span>Jael N.<small>Network &amp; Cloud Security</small></span></a>
+    <ul class="links" id="links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#labs">Lab Challenges</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn talk">Let's Talk</a>
+    <button class="burger" id="burger" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ 1. HOME ============ -->
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <p class="hi">&gt; hello_world.sh &mdash; I'm</p>
+      <p class="name">Jael Atieno Nyangwethe</p>
+      <h1><span class="outline">Building</span> reliable<br>networks, <span class="green">securing</span><br>the <span class="outline">cloud</span></h1>
+      <p class="lede">Computer Security &amp; Forensics graduate training in network and cloud security. I build and troubleshoot dual-stack Cisco networks, analyse traffic with Wireshark and tcpdump, and document every lab so the work can be verified.</p>
+      <div class="cta">
+        <a href="#projects" class="btn solid">View My Work</a>
+        <a href="#contact" class="btn">Get In Touch</a>
+      </div>
+      <div class="pills">
+        <span class="pill on">Network Engineering</span><span class="pill on">Cloud Security</span><span class="pill">Cisco IOS</span><span class="pill">IPv4 / IPv6</span><span class="pill">Wireshark</span>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="img/profile.jpg" alt="Portrait of Jael Nyangwethe" width="900" height="900">
+      <span class="badge b1">BSc Security &amp; Forensics</span>
+      <span class="badge b2">Network &amp; Cloud Security</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. RESUME ============ -->
+<section id="resume" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Resume</span>
+      <h2><span class="outline">Know</span> me more</h2>
+      <p>Computer Security and Forensics graduate building a career in network engineering and cloud security. My hands-on labs and projects are my experience: configuring Cisco routers and switches, verifying dual-stack connectivity and analysing live traffic.</p>
+    </div>
+
+    <div class="resume">
+      <div class="reveal">
+        <h3 class="col"><span>&#9670;</span> Academic Background</h3>
+        <div class="tl">
+          <div class="tl-item">
+            <span class="when">2021 – Dec 2025</span>
+            <h4>BSc, Computer Security and Forensics</h4>
+            <p class="org">Jaramogi Oginga Odinga University of Science and Technology (JOOUST)</p>
+          </div>
+          <div class="tl-item">
+            <span class="when">Sep 2026 – Present</span>
+            <h4>Cloud and Network Security Programme</h4>
+            <p class="org">Cyber Shujaa — hands-on Cisco networking, traffic analysis and security labs</p>
+          </div>
+        </div>
+        </div>
+
+        <h3 class="col" style="margin-top:38px"><span>&#9670;</span> Work Experience</h3>
+        <div class="tl">
+          <div class="tl-item">
+            <span class="when">May 2024 – Aug 2024</span>
+            <h4>ICT Attaché (Industrial Attachment)</h4>
+            <p class="org">The National Treasury</p>
+            <ul>
+              <li>Managed firewalls, IDS and endpoint protection solutions.</li>
+              <li>Helped deliver staff training on phishing awareness and secure password practices.</li>
+              <li>Diagnosed network and system issues; performed ICT asset audits and software configuration.</li>
+              <li>Supported data backup/recovery and organisation-wide antivirus deployment.</li>
+            </ul>
+          </div>
+          <div class="tl-item">
+            <span class="when">2026</span>
+            <h4>Hands-on network &amp; security labs</h4>
+            <p class="org">See <a class="link" href="#projects">Projects</a> and <a class="link" href="#labs">Lab Challenges</a> for the practical work I have completed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="col"><span>&#9670;</span> Certifications &amp; Training</h3>
+        <div class="tl">
+          <div class="tl-item"><span class="when">Jul 2026</span><h4>Cybersecurity Defense Analyst Pathway Exam</h4><p class="org">Cisco Networking Academy — USIU-Africa</p></div>
+          <div class="tl-item"><span class="when">Nov 2025</span><h4>Cyber Security &amp; Ethical Hacking Internship</h4><p class="org">Edureka</p></div>
+          <div class="tl-item"><span class="when">Sep 2025</span><h4>Cryptography &amp; Application Security</h4><p class="org">Edureka</p></div>
+          <div class="tl-item"><span class="when">Jul 2025</span><h4>Operating Systems &amp; Networking Fundamentals</h4><p class="org">Edureka</p></div>
+          <div class="tl-item"><span class="when">May 2025</span><h4>Blue Team Junior Analyst Pathway</h4><p class="org">Security Blue Team</p></div>
+          <div class="tl-item"><span class="when">Award</span><h4>Cybersecurity Job Simulation</h4><p class="org">Forage</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills reveal">
+      <h3 class="col" style="font-size:1.15rem;font-weight:700;text-transform:uppercase;margin-bottom:18px"><span class="green">&#9670;</span> Skills</h3>
+      <div>
+        <div class="skill-row"><div class="dom">Network Configuration<small>SK-01</small></div><div><span class="tag">Cisco IOS CLI</span><span class="tag">Router &amp; switch setup</span><span class="tag">Static IPv4 addressing</span><span class="tag">IPv6 addressing</span><span class="tag">Dual-stack networks</span><span class="tag">Default gateways</span><span class="tag">Switch VLAN 1 management</span></div></div>
+        <div class="skill-row"><div class="dom">Routing &amp; Connectivity<small>SK-02</small></div><div><span class="tag">Inter-subnet routing</span><span class="tag">ipv6 unicast-routing</span><span class="tag">Connected &amp; local routes</span><span class="tag">ARP behaviour</span><span class="tag">ICMP / ping testing</span></div></div>
+        <div class="skill-row"><div class="dom">Device Hardening<small>SK-03</small></div><div><span class="tag">Enable secret</span><span class="tag">Console &amp; VTY passwords</span><span class="tag">Password encryption</span><span class="tag">MOTD login banner</span><span class="tag">Disabling DNS lookup</span><span class="tag">Saving config to NVRAM</span></div></div>
+        <div class="skill-row"><div class="dom">Verification &amp; Troubleshooting<small>SK-04</small></div><div><span class="tag">show ip route</span><span class="tag">show ip interface brief</span><span class="tag">show ipv6 interface</span><span class="tag">Fault isolation</span><span class="tag">Interface status analysis</span></div></div>
+        <div class="skill-row"><div class="dom">Traffic Analysis<small>SK-05</small></div><div><span class="tag">Wireshark</span><span class="tag">tcpdump</span><span class="tag">Capture filters</span><span class="tag">PDU inspection</span><span class="tag">OSI &amp; TCP/IP models</span></div></div>
+        <div class="skill-row"><div class="dom">Tools &amp; Platforms<small>SK-06</small></div><div><span class="tag">Cisco Packet Tracer</span><span class="tag">Hack The Box Academy</span><span class="tag">Arch Linux</span><span class="tag">Linux command line</span></div></div>
+        <div class="skill-row"><div class="dom">Documentation<small>SK-07</small></div><div><span class="tag">Technical lab reports</span><span class="tag">Screenshot evidence</span><span class="tag">Documenting challenges &amp; fixes</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Projects</span>
+      <h2>Recent <span class="outline">work</span> &amp; builds</h2>
+      <p>Hands-on work from the Cyber Shujaa programme and my university coursework.</p>
+    </div>
+    <div class="grid2">
+      <article class="card proj reveal">
+        <div class="ico">&#128268;</div>
+        <div class="meta">CYBER SHUJAA · SEP 2026</div>
+        <h3>Switch &amp; Router Network Build</h3>
+        <p>Built a dual-stack network from scratch in Cisco Packet Tracer: a 1941 router (R1) joining two subnets, a 2960-24TT switch (S1) and two PCs. Configured static IPv4/IPv6 addressing, hardened the router, verified end-to-end connectivity and resolved five configuration faults along the way.</p>
+        <div class="foot"><div><span class="tag">Packet Tracer</span><span class="tag">Cisco IOS</span><span class="tag">IPv4/IPv6</span></div><a class="link" href="#lab-4">Full write-up &rarr;</a></div>
+      </article>
+
+      <article class="card proj reveal">
+        <div class="ico">&#128269;</div>
+        <div class="meta">CYBER SHUJAA · 2026</div>
+        <h3>Network Traffic Analysis</h3>
+        <p>Captured and analysed live traffic with Wireshark and tcpdump, including a local ICMP exchange on Arch Linux, and completed Hack The Box Academy's Network Traffic Analysis module (badge: “Lurk in the Packets”).</p>
+        <div class="foot"><div><span class="tag">Wireshark</span><span class="tag">tcpdump</span><span class="tag">ICMP</span></div><a class="link" href="#lab-2">Full write-up &rarr;</a></div>
+      </article>
+
+      <article class="card proj reveal">
+        <div class="ico">&#128225;</div>
+        <div class="meta">CYBER SHUJAA · 2026</div>
+        <h3>TCP/IP &amp; OSI Models in Action</h3>
+        <p>Traced packets hop by hop in Packet Tracer's simulation mode, mapping PDU contents to the OSI and TCP/IP layers to see encapsulation and de-encapsulation as it happens.</p>
+        <div class="foot"><div><span class="tag">Packet Tracer</span><span class="tag">OSI</span><span class="tag">TCP/IP</span></div><a class="link" href="#lab-1">Full write-up &rarr;</a></div>
+      </article>
+
+      <article class="card proj reveal">
+        <div class="ico">&#9993;</div>
+        <div class="meta">UNIVERSITY · SEP 2024 – APR 2025</div>
+        <h3>Email Phishing Detection</h3>
+        <p>Designed and implemented an automated phishing-email detection algorithm in Python and presented the results and findings to peers and faculty.</p>
+        <div class="foot"><div><span class="tag">Python</span><span class="tag">Scikit-learn</span></div><a class="link" href="https://github.com/Jaelblazer/phishing-email-detector" target="_blank" rel="noopener">Repo &rarr;</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. LAB CHALLENGES ============ -->
+<section id="labs" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Lab Challenges</span>
+      <h2>Hands-on <span class="outline">labs</span> completed</h2>
+      <p>Each lab lists the problem, my approach, the tools used, evidence and what I took away from it.</p>
+    </div>
+
+    <!-- LAB 1 -->
+    <article class="lab reveal" id="lab-1">
+      <div class="lab-head"><span class="lab-num">01</span><div><h3>Investigate the TCP/IP and OSI Models in Action</h3><span class="src">Cyber Shujaa · Cisco Packet Tracer</span></div></div>
+      <div class="lab-body">
+        <div><h5>Problem Statement</h5><p>Show how data actually moves through the OSI and TCP/IP models by following real traffic across a simulated network, rather than just memorising the layers.</p></div>
+        <div><h5>Tools Used</h5><span class="tag">Cisco Packet Tracer</span><span class="tag">Simulation mode</span><span class="tag">PDU inspection</span></div>
+        <div class="full"><h5>Approach</h5><ul>
+          <li>Generated traffic between hosts in Packet Tracer's simulation mode and stepped through each packet.</li>
+          <li>Opened the PDU details at each device to map fields and headers to the OSI and TCP/IP layers.</li>
+          <li>Observed encapsulation and de-encapsulation as frames moved between the hosts, switch and router.</li>
+          <li>Recorded findings with screenshots and answered the lab questions in a written report.</li>
+        </ul></div>
+        <div class="full"><h5>Key Lessons Learned</h5><p>Seeing a packet at every hop makes the layered models concrete: each layer adds its own header, and knowing which layer a field belongs to is what lets you troubleshoot — and later analyse — traffic quickly.</p></div>
+        <div class="full shots">
+          <figure><img src="img/labs/lab1-pdu.png" alt="Packet Tracer PDU details" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Packet Tracer — PDU inspection</figcaption></figure>
+          <figure><img src="img/labs/lab1-osi.png" alt="OSI layer mapping" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>OSI layer mapping</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- LAB 2 -->
+    <article class="lab reveal" id="lab-2">
+      <div class="lab-head"><span class="lab-num">02</span><div><h3>Use Wireshark to View Network Traffic</h3><span class="src">Cyber Shujaa · Wireshark on Arch Linux</span></div></div>
+      <div class="lab-body">
+        <div><h5>Problem Statement</h5><p>Capture live network traffic and identify what different protocols look like on the wire, including the ICMP exchange between two devices.</p></div>
+        <div><h5>Tools Used</h5><span class="tag">Wireshark</span><span class="tag">Arch Linux</span><span class="tag">ping / ICMP</span><span class="tag">Capture filters</span></div>
+        <div class="full"><h5>Approach</h5><ul>
+          <li>The lab assumed Windows, so I adapted it to Arch Linux and set up Wireshark with the right capture permissions.</li>
+          <li>Without a second team member to ping, I used the router as a stand-in peer to generate local ICMP traffic.</li>
+          <li>Captured the exchange, filtered to the relevant protocol, and inspected the packet details and headers.</li>
+        </ul></div>
+        <div class="full"><h5>Key Lessons Learned</h5><p>Labs rarely match your environment exactly — adapting the setup taught me more than following steps would have. It also reinforced that filters are essential: a busy interface is unreadable until you narrow it to the traffic you care about.</p></div>
+        <div class="full shots">
+          <figure><img src="img/labs/lab2-capture.png" alt="Wireshark ICMP capture" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Wireshark — ICMP capture</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- LAB 3 -->
+    <article class="lab reveal" id="lab-3">
+      <div class="lab-head"><span class="lab-num">03</span><div><h3>Introduction to Network Traffic Analysis</h3><span class="src">Hack The Box Academy · Badge: “Lurk in the Packets”</span></div></div>
+      <div class="lab-body">
+        <div><h5>Problem Statement</h5><p>Learn to analyse network traffic the way a defender does — capturing, filtering and interpreting packets to understand what is happening on a network.</p></div>
+        <div><h5>Tools Used</h5><span class="tag">tcpdump</span><span class="tag">Wireshark</span><span class="tag">HTB Academy</span></div>
+        <div class="full"><h5>Approach</h5><ul>
+          <li>Worked through the module’s theory and guided exercises on capturing traffic from the command line and in the GUI.</li>
+          <li>Used tcpdump for quick terminal captures and Wireshark for deeper packet-by-packet analysis.</li>
+          <li>Completed the module’s practical questions and earned the “Lurk in the Packets” badge.</li>
+        </ul></div>
+        <div class="full"><h5>Key Lessons Learned</h5><p>Traffic analysis is a core defensive skill: knowing what normal traffic looks like is what makes abnormal traffic stand out. Command-line and GUI tools complement each other — tcpdump for speed, Wireshark for depth.</p></div>
+        <div class="full shots">
+          <figure><img src="img/labs/lab3-badge.png" alt="HTB Academy badge" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>HTB Academy — module completion</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- LAB 4 -->
+    <article class="lab reveal" id="lab-4">
+      <div class="lab-head"><span class="lab-num">04</span><div><h3>Build a Switch and Router Network</h3><span class="src">Cyber Shujaa · Cloud and Network Security · Cisco Packet Tracer</span></div></div>
+      <div class="lab-body">
+        <div><h5>Problem Statement</h5><p>Build a dual-stack network in which one router (R1) connects two subnets — PC-B on one interface, and PC-A behind a switch (S1) on the other — then secure the devices and prove end-to-end connectivity over both IPv4 and IPv6.</p></div>
+        <div><h5>Tools Used</h5><span class="tag">Cisco Packet Tracer</span><span class="tag">Cisco 1941 router</span><span class="tag">Cisco 2960-24TT switch</span><span class="tag">Cisco IOS CLI</span><span class="tag">ping</span><span class="tag">show commands</span></div>
+        <div class="full"><h5>Approach</h5><ul>
+          <li>Cabled the router, switch and two PCs with copper straight-through links to match the topology, and confirmed both devices booted clean.</li>
+          <li>Assigned static IPv4 and IPv6 addresses to both PCs, then confirmed the first pings failed because no router interface existed yet to route between the two subnets.</li>
+          <li>Configured R1's two Gigabit interfaces with IPv4 and IPv6 addresses, descriptions and <code>no shutdown</code>; hardened it with an enable secret, console and VTY passwords, <code>service password-encryption</code> and a MOTD banner.</li>
+          <li>Configured S1 with a hostname, DNS lookup disabled, a VLAN 1 management address and a default gateway, then saved the running config to NVRAM.</li>
+          <li>Verified with pings across both protocols and inspected the result with <code>show ip route</code>, <code>show ipv6 route</code>, <code>show ip interface</code> and the <code>brief</code> summaries.</li>
+        </ul></div>
+        <div class="full"><h5>Challenges Faced &amp; How I Resolved Them</h5><ul>
+          <li><b>Interface names didn't match the lab.</b> The lab text assumed a Cisco 4221 (G0/0/0, G0/0/1) but I used a 1941 (G0/0, G0/1). I checked the router's modules in the Physical tab and mapped each interface to its equivalent.</li>
+          <li><b>IPv6 address syntax needed a second attempt.</b> I corrected the command format and re-applied the addressing.</li>
+          <li><b>VTY lines were configured incorrectly at first.</b> I reviewed the line configuration and rebuilt it properly with login enabled.</li>
+          <li><b>A missing hyphen broke the password-encryption command.</b> The correct command is <code>service password-encryption</code>; reading the CLI error carefully exposed the typo.</li>
+          <li><b>IPv6 pings failed with 100% loss.</b> Each interface had a valid IPv6 address, but the router wasn't forwarding until I enabled <code>ipv6 unicast-routing</code>; the same ping then succeeded with 0% loss.</li>
+        </ul></div>
+        <div class="full"><h5>Key Lessons Learned</h5><ul>
+          <li>An address on an interface isn't enough: a router only routes IPv6 once <code>ipv6 unicast-routing</code> is enabled.</li>
+          <li>The first ping often times out because the router must complete ARP resolution first — a timeout isn't always a fault.</li>
+          <li>Hardware differs from lab guides (interface naming varies by router model), so I adapt commands to what the device actually presents rather than copying them verbatim.</li>
+          <li>Each verification step traced back to a specific piece of configuration being present or missing, which made troubleshooting systematic.</li>
+        </ul></div>
+        <div class="full shots">
+          <figure><img src="img/labs/lab4-topology.png" alt="Packet Tracer network topology" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Network topology</figcaption></figure>
+          <figure><img src="img/labs/lab4-config.png" alt="Router configuration log" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Router configuration log</figcaption></figure>
+          <figure><img src="img/labs/lab4-ipv6-ping.png" alt="Successful IPv6 ping" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>IPv6 ping after enabling routing</figcaption></figure>
+          <figure><img src="img/labs/lab4-routes.png" alt="show ip route output" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>show ip route</figcaption></figure>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's <span class="outline">work</span> together</h2>
+      <p>Open to network engineering and cloud security opportunities. Reach out through any of the channels below.</p>
+    </div>
+    <div class="contact">
+      <div class="reveal">
+        <a class="c-item" href="mailto:jaelblazer@gmail.com"><span class="ci">@</span><span><small>Email</small><b>jaelblazer@gmail.com</b></span></a>
+        <a class="c-item" href="https://www.linkedin.com/in/jael-atieno" target="_blank" rel="noopener"><span class="ci">in</span><span><small>LinkedIn</small><b>linkedin.com/in/jael-atieno</b></span></a>
+        <a class="c-item" href="https://github.com/Jaelblazer" target="_blank" rel="noopener"><span class="ci">&lt;/&gt;</span><span><small>GitHub</small><b>github.com/Jaelblazer</b></span></a>
+      </div>
+      <form class="reveal" id="cform">
+        <div class="row"><input id="fn" placeholder="Your name" required><input id="fe" type="email" placeholder="Your email" required></div>
+        <input id="fs" placeholder="Subject">
+        <textarea id="fm" placeholder="Your message" required></textarea>
+        <button class="btn solid" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; <span id="yr"></span> Jael Nyangwethe · Built &amp; deployed on GitHub Pages</div>
+</footer>
+
+<a href="#home" class="totop" id="totop" aria-label="Back to top">&uarr;</a>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const links=document.getElementById('links');
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// active nav + back-to-top
+const secs=[...document.querySelectorAll('section[id]')],navs=[...links.querySelectorAll('a')],toTop=document.getElementById('totop');
+addEventListener('scroll',()=>{
+  const y=scrollY+120;let cur=secs[0].id;
+  secs.forEach(s=>{if(s.offsetTop<=y)cur=s.id});
+  navs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  toTop.classList.toggle('show',scrollY>600);
+},{passive:true});
+
+// contact form -> opens the visitor's mail app
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=fn.value,em=fe.value,s=fs.value||'Portfolio enquiry',m=fm.value;
+  location.href='mailto:jaelblazer@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(m+'\n\n— '+n+' ('+em+')');
+});
+</script>
+</body>
+</html>
