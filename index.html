@@ -363,7 +363,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:v
           <li>Without a second team member to ping, I used the router as a stand-in peer to generate local ICMP traffic.</li>
           <li>Captured the exchange, filtered to the relevant protocol, and inspected the packet details and headers.</li>
         </ul></div>
-        <div class="full"><h5>Key Lessons Learned</h5><p>Labs rarely match your environment exactly — adapting the setup taught me more than following steps would have. It also reinforced that filters are essential: a busy interface is unreadable until you narrow it to the traffic you care about.</p></div>
+        <div class="full"><h5>Key Lessons Learned</h5><p>Labs rarely match your environment exactly adapting the setup taught me more than following steps would have. It also reinforced that filters are essential: a busy interface is unreadable until you narrow it to the traffic you care about.</p></div>
         <div class="full shots">
           <figure><img src="img/labs/lab2-capture.png" alt="Wireshark ICMP capture" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Wireshark — ICMP capture</figcaption></figure>
         </div>
@@ -381,7 +381,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:v
           <li>Used tcpdump for quick terminal captures and Wireshark for deeper packet-by-packet analysis.</li>
           <li>Completed the module’s practical questions and earned the “Lurk in the Packets” badge.</li>
         </ul></div>
-        <div class="full"><h5>Key Lessons Learned</h5><p>Traffic analysis is a core defensive skill: knowing what normal traffic looks like is what makes abnormal traffic stand out. Command-line and GUI tools complement each other — tcpdump for speed, Wireshark for depth.</p></div>
+        <div class="full"><h5>Key Lessons Learned</h5><p>Traffic analysis is a core defensive skill: knowing what normal traffic looks like is what makes abnormal traffic stand out. Command-line and GUI tools complement each other tcpdump for speed, Wireshark for depth.</p></div>
         <div class="full shots">
           <figure><img src="img/labs/lab3-badge.png" alt="HTB Academy badge" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>HTB Academy — module completion</figcaption></figure>
         </div>
@@ -392,7 +392,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:v
     <article class="lab reveal" id="lab-4">
       <div class="lab-head"><span class="lab-num">04</span><div><h3>Build a Switch and Router Network</h3><span class="src">Cyber Shujaa · Cloud and Network Security · Cisco Packet Tracer</span></div></div>
       <div class="lab-body">
-        <div><h5>Problem Statement</h5><p>Build a dual-stack network in which one router (R1) connects two subnets — PC-B on one interface, and PC-A behind a switch (S1) on the other — then secure the devices and prove end-to-end connectivity over both IPv4 and IPv6.</p></div>
+        <div><h5>Problem Statement</h5><p>Build a dual-stack network in which one router (R1) connects two subnets PC-B on one interface, and PC-A behind a switch (S1) on the other then secure the devices and prove end-to-end connectivity over both IPv4 and IPv6.</p></div>
         <div><h5>Tools Used</h5><span class="tag">Cisco Packet Tracer</span><span class="tag">Cisco 1941 router</span><span class="tag">Cisco 2960-24TT switch</span><span class="tag">Cisco IOS CLI</span><span class="tag">ping</span><span class="tag">show commands</span></div>
         <div class="full"><h5>Approach</h5><ul>
           <li>Cabled the router, switch and two PCs with copper straight-through links to match the topology, and confirmed both devices booted clean.</li>
@@ -410,7 +410,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:v
         </ul></div>
         <div class="full"><h5>Key Lessons Learned</h5><ul>
           <li>An address on an interface isn't enough: a router only routes IPv6 once <code>ipv6 unicast-routing</code> is enabled.</li>
-          <li>The first ping often times out because the router must complete ARP resolution first — a timeout isn't always a fault.</li>
+          <li>The first ping often times out because the router must complete ARP resolution first a timeout isn't always a fault.</li>
           <li>Hardware differs from lab guides (interface naming varies by router model), so I adapt commands to what the device actually presents rather than copying them verbatim.</li>
           <li>Each verification step traced back to a specific piece of configuration being present or missing, which made troubleshooting systematic.</li>
         </ul></div>
